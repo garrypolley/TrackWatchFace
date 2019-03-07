@@ -6,7 +6,7 @@ using Toybox.Lang;
 using Toybox.Math;
 
 // Helper function for drawing step goal
-function drawStepIcon(dc) {
+function drawStepIcon(dc, desiredX, desiredY, height) {
     var info = ActivityMonitor.getInfo();
     var steps = info.steps;
     var stepGoal = info.stepGoal;
@@ -14,11 +14,10 @@ function drawStepIcon(dc) {
     var stepGoalsCompleted = Math.ceil(stepPercent / 100);
 
     // Draw rectangle location
-    var height = Graphics.getFontHeight(Graphics.FONT_SYSTEM_XTINY);
     var offset = 10;
     var width = (dc.getWidth() / 2) + offset;
-    var x = (dc.getWidth() / 2) + offset; // Add a 1/4 width to both sides of the bar
-    var y = dc.getHeight() / 2;
+    var x = (desiredX) + offset; // Add a 1/4 width to both sides of the bar
+    var y = desiredY;
     var roundedSize = 10;
 
     // Variables for the 'track', goes from right to left to start like you'd run a track

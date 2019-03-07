@@ -1,13 +1,7 @@
 using Toybox.Graphics;
 using Toybox.System;
 
-function drawBattery(dc) {
-    // Setup the outer white box for the battery indicator
-    var height = 12;
-    var width = 22;
-    var offset = 20;
-    var x = (dc.getWidth() / 2) + offset;
-    var y = dc.getHeight() / 2 + (Graphics.getFontHeight(Graphics.FONT_SYSTEM_NUMBER_THAI_HOT) / 2) - height + 3;
+function drawBattery(dc, x, y, height, width, offset) {
 
     dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
     dc.drawRectangle(

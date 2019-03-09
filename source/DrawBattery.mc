@@ -4,6 +4,7 @@ using Toybox.System;
 function drawBattery(dc, x, y, height, width, offset) {
 
     dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+    // Draw the battery casing
     dc.drawRectangle(
         x,
         y,

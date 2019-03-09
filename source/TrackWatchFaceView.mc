@@ -56,15 +56,47 @@ class TrackWatchFaceView extends WatchUi.WatchFace {
         setDefaultAndClear(dc);
         drawBattery(dc, xMiddle + offset, iconY, iconHeight, iconWidth, offset);
 
-		drawPhoneIndicator();
+		setDefaultAndClear(dc);
+		drawPhoneIndicator(dc, xMiddle + iconWidth + (offset * 2), iconY + offset);
     }
 
-	function drawPhoneIndicator() {
+	function drawPhoneIndicator(dc, x, y) {
 		if (System.getDeviceSettings().phoneConnected) {
 			System.println("Phone connected");
 		} else {
 			System.println("no phone connected");
 		}
+
+		var points = [
+			[x, y],
+			[x - 5, y + 6],
+			[x - 5.25, y + 6.5],
+			[x - 5.5, y + 7],
+			[x - 5.25, y + 7.5],
+			[x - 5, y + 10],
+			[x - 4, y + 11],
+			[x - 3, y + 12.5],
+			[x - 2.5, y + 13],
+			[x - 1.25, y + 15],
+			[x, y + 16],
+			[x + 1.25, y + 18],
+			[x + 5, y + 20],
+			[x + 8.75, y + 22.5],
+			[x + 12.5, y + 24.5],
+			[x + 17, y + 25],
+			[x + 20, y + 27],
+			[x + 22.5, y + 26],
+			[x + 25, y + 24.5],
+			[x + 25.5, y + 24],
+			[x + 26, y + 23.5],
+			[x + 26.5, y + 22.5],
+
+			// [x - 5, y + 27.5],
+			[x + 30, y + 27.5],
+			[x + 30, y]
+		];
+
+		dc.fillPolygon(points);
 	}
 
     // Helper function to clear the watchface to default colors for text
